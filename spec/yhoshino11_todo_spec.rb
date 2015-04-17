@@ -1,11 +1,15 @@
 require 'spec_helper'
 
 describe Yhoshino11Todo do
-  it 'has a version number' do
-    expect(Yhoshino11Todo::VERSION).not_to be nil
-  end
+  context 'version' do
+    let(:version) { Yhoshino11Todo::VERSION }
 
-  it 'does something useful' do
-    expect(false).to eq(true)
+    it 'has number' do
+      expect(version).not_to be nil
+    end
+
+    it 'is v0.0.1' do
+      expect(version).to eq('0.0.1')
+    end
   end
 end
