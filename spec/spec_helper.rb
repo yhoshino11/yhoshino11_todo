@@ -11,7 +11,6 @@ RSpec.configure do |config|
   require 'database_cleaner'
   config.include FactoryGirl::Syntax::Methods
   config.before do
-    ActiveRecord::Base.establish_connection adapter: 'sqlite3',database: ':memory:'
     begin
       DatabaseCleaner.strategy = :transaction
       DatabaseCleaner.start
