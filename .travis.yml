@@ -1,12 +1,25 @@
+sudo: required
 language: ruby
 rvm:
   - 2.1.5
+before_install:
+  - sudo apt-get autoremove sqlite3
+  - sudo apt-get install python-software-properties
+  - sudo apt-add-repository -y ppa:travis-ci/sqlite3
+  - sudo apt-get -y update
+  - sudo apt-cache show sqlite3
+  - sudo apt-get install sqlite3=3.7.15.1-1~travis1
+  - sudo sqlite3 --version
 install:
-  gem install bundler --version '1.9.4'
+  - gem install bundler -v '1.9.4'
+  - bundle install --path .bundle --jobs=3 --retry=3
+cache:
+  directories:
+  - .bundle
 env:
   - CODECLIMATE_REPO_TOKEN=8259e5b926031e84ed19c7a1a5c42e256fa9a11c2b4cf1457f5a36a45a239ca7
+  - DB=sqlite3
 script:
-  - "bundle install --path .bundle"
   - "bundle exec rspec"
 addons:
   code_climate:
