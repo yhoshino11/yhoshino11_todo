@@ -6,3 +6,6 @@ install:
 script:
   - "bundle install --path .bundle"
   - "bundle exec rspec"
+addons:
+  code_climate:
+    repo_token: 8259e5b926031e84ed19c7a1a5c42e256fa9a11c2b4cf1457f5a36a45a239ca7
