@@ -1,4 +1,4 @@
-# CLItodo [![Build Status](https://travis-ci.org/yhoshino11/yhoshino11_todo.svg)](https://travis-ci.org/yhoshino11/yhoshino11_todo) [![Code Climate](https://codeclimate.com/github/yhoshino11/yhoshino11_todo/badges/gpa.svg)](https://codeclimate.com/github/yhoshino11/yhoshino11_todo)
+# CLItodo [![Build Status](https://travis-ci.org/yhoshino11/yhoshino11_todo.svg)](https://travis-ci.org/yhoshino11/yhoshino11_todo) [![Code Climate](https://codeclimate.com/github/yhoshino11/yhoshino11_todo/badges/gpa.svg)](https://codeclimate.com/github/yhoshino11/yhoshino11_todo) [![Coverage Status](https://coveralls.io/repos/yhoshino11/yhoshino11_todo/badge.svg?branch=feature%2Fcommands)](https://coveralls.io/r/yhoshino11/yhoshino11_todo?branch=feature%2Fcommands)
 
 CLI Todo App - inspired by [パーフェクトRuby](http://gihyo.jp/book/2013/978-4-7741-5879-2)
 
