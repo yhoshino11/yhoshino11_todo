@@ -1,4 +1,4 @@
-# CLItodo
+# CLItodo [![Build Status](https://travis-ci.org/yhoshino11/yhoshino11_todo.svg)](https://travis-ci.org/yhoshino11/yhoshino11_todo)
 
 CLI Todo App - inspired by [パーフェクトRuby](http://gihyo.jp/book/2013/978-4-7741-5879-2)
 
