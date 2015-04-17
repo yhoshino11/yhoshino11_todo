@@ -1,6 +1,13 @@
 language: ruby
 rvm:
   - 2.1.5
+before_install:
+  - sudo apt-get autoremove sqlite3
+  - sudo apt-get install python-software-properties
+  - sudo apt-add-repository -y ppa:travis-ci/sqlite3
+  - sudo apt-get -y update
+  - sudo apt-cache show sqlite3
+  - sudo apt-get install sqlite3=3.7.15.1-1~travis1
 install:
   - gem install bundler -v '1.9.4'
   - bundle install --path .bundle --jobs=3 --retry=3
