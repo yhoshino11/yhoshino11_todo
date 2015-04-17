@@ -8,15 +8,8 @@ require 'yhoshino11_todo'
 
 RSpec.configure do |config|
   require 'factory_girl'
-  require 'database_cleaner'
   config.include FactoryGirl::Syntax::Methods
   config.before do
-    begin
-      DatabaseCleaner.strategy = :transaction
-      DatabaseCleaner.start
-      FactoryGirl.lint
-    ensure
-      DatabaseCleaner.clean
-    end
+    FactoryGirl.lint
   end
 end
