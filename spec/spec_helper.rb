@@ -8,6 +8,16 @@ require 'yhoshino11_todo'
 
 RSpec.configure do |config|
   require 'factory_girl'
-  ActiveRecord::Base.establish_connection adapter: 'sqlite3',database: ':memory:'
+  require 'database_cleaner'
   config.include FactoryGirl::Syntax::Methods
+  config.before do
+    ActiveRecord::Base.establish_connection adapter: 'sqlite3',database: ':memory:'
+    begin
+      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.start
+      FactoryGirl.lint
+    ensure
+      DatabaseCleaner.clean
+    end
+  end
 end
