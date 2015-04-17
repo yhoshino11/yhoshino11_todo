@@ -1,8 +1,6 @@
 directories %w(lib config spec)
 clearing :on
 
-# while bundle exec guard; do echo "Restarting Guard..."; done
-
 guard :rspec, cmd: "bundle exec rspec" do
   require "guard/rspec/dsl"
   dsl = Guard::RSpec::Dsl.new(self)
