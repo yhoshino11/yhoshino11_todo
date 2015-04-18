@@ -20,5 +20,11 @@ describe Yhoshino11Todo::Command do
     it 'to search' do
       expect(tasks.where(name: task[:name]).first.id).to eq(1)
     end
+
+    it 'to destroy' do
+      task = tasks.first
+      command.delete_task(task.id)
+      expect(tasks.count).to eq(0)
+    end
   end
 end
