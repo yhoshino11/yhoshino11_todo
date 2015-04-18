@@ -19,6 +19,13 @@ describe Yhoshino11Todo::Command do
         options = command::Options.parse!(['search', '-s done'])
         expect(options).to eq({ command: 'search', status: ' done' })
       end
+
+      context 'to update' do
+        it 'name' do
+          options = command::Options.parse!(['update', '-n another_name'])
+          expect(options).to eq({ command: 'update', name: ' another_name' })
+        end
+      end
     end
   end
 end

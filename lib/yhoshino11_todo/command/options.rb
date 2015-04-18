@@ -35,6 +35,10 @@ module Yhoshino11Todo
         sub_command_parsers['search'] = OptionParser.new do |opt|
           opt.on('-s VAL', '--status=VAL', 'search status') { |val| options[:status] = val }
         end
+
+        sub_command_parsers['update'] = OptionParser.new do |opt|
+          opt.on('-n VAL', '--name VAL', 'update name') { |val| options[:name] = val }
+        end
         sub_command_parsers
      end
 
