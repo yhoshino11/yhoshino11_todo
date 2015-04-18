@@ -21,6 +21,12 @@ describe Yhoshino11Todo::Command do
       expect(tasks.where(name: task[:name]).first.id).to eq(1)
     end
 
+    it 'to update' do
+      task = tasks.first
+      task = command.update_task(task.id, {content: 'new_task',status: 'done'})
+      expect(task[:status]).to eq(1)
+    end
+
     it 'to destroy' do
       task = tasks.first
       command.delete_task(task.id)
