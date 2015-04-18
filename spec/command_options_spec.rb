@@ -9,9 +9,16 @@ describe Yhoshino11Todo::Command do
       expect(action).to eq("yhoshino11_todo #{current_version}\n")
     end
 
-    it 'allows options' do
-      options = command::Options.parse!(['create', '-n name_val'])
-      expect(options).to eq({ command: 'create', name: ' name_val' })
+    context 'allows options' do
+      it 'to create' do
+        options = command::Options.parse!(['create', '-n name_val'])
+        expect(options).to eq({ command: 'create', name: ' name_val' })
+      end
+
+      it 'to search' do
+        options = command::Options.parse!(['search', '-s done'])
+        expect(options).to eq({ command: 'search', status: ' done' })
+      end
     end
   end
 end

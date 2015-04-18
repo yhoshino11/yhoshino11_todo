@@ -31,6 +31,10 @@ module Yhoshino11Todo
           opt.on('-n VAL', '--name=VAL', 'task name') { |val| options[:name] = val }
           opt.on('-c VAL', '--content=VAL', 'task content') { |val| options[:content] = val }
         end
+
+        sub_command_parsers['search'] = OptionParser.new do |opt|
+          opt.on('-s VAL', '--status=VAL', 'search status') { |val| options[:status] = val }
+        end
         sub_command_parsers
      end
 
