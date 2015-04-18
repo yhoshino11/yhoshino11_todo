@@ -32,4 +32,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'factory_girl', '>= 4.5.0'
   spec.add_development_dependency 'simplecov', '>= 0.9.2'
   spec.add_development_dependency 'database_cleaner', '>= 1.4.1'
+  spec.add_development_dependency 'spring', '>= 1.3.4'
 end
