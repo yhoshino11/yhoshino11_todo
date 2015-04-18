@@ -3,7 +3,16 @@
 module Yhoshino11Todo
   class Command
 
+    def self.run(argv)
+      new(argv).execute
+    end
+
+    def initialize(argv)
+      @argv = argv unless argv.nil?
+    end
+
     def execute
+      options = Options.parse!(@argv) unless @argv.nil?
       DB.prepare
     end
 
