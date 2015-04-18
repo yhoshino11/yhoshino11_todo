@@ -30,6 +30,11 @@ describe Yhoshino11Todo::Command do
           options = command::Options.parse!(['update', '-c another_content'])
           expect(options).to eq({ command: 'update', content: ' another_content' })
         end
+
+        it 'status' do
+          options = command::Options.parse!(['update', '-s pending'])
+          expect(options).to eq({ command: 'update', status: ' pending' })
+        end
       end
     end
   end

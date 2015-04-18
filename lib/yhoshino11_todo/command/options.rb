@@ -39,6 +39,7 @@ module Yhoshino11Todo
         sub_command_parsers['update'] = OptionParser.new do |opt|
           opt.on('-n VAL', '--name VAL', 'update name') { |val| options[:name] = val }
           opt.on('-c VAL', '--content VAL', 'update content') { |val| options[:content] = val }
+          opt.on('-s VAL', '--status VAL', 'update status') { |val| options[:status] = val }
         end
         sub_command_parsers
      end
