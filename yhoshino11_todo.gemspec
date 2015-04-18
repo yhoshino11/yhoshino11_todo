@@ -30,4 +30,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "guard-rspec", '~> 4.5', '>= 4.5.0'
   spec.add_development_dependency 'pry', '~> 0.10.0'
   spec.add_development_dependency 'factory_girl', '>= 4.5.0'
+  spec.add_development_dependency 'simplecov', '>= 0.9.2'
+  spec.add_development_dependency 'database_cleaner', '>= 1.4.1'
 end
