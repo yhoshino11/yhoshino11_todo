@@ -25,6 +25,11 @@ describe Yhoshino11Todo::Command do
           options = command::Options.parse!(['update', '-n another_name'])
           expect(options).to eq({ command: 'update', name: ' another_name' })
         end
+
+        it 'content' do
+          options = command::Options.parse!(['update', '-c another_content'])
+          expect(options).to eq({ command: 'update', content: ' another_content' })
+        end
       end
     end
   end
