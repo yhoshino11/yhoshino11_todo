@@ -8,15 +8,7 @@ module Yhoshino11Todo
       def self.parse!(argv)
         options = {}
 
-        sub_command_parsers = Hash.new do |key,val|
-          raise ArgumentError, "'#{val}' is not yhoshino11_todo sub command."
-        end
-
-        sub_command_parsers['create'] = OptionParser.new do |opt|
-          opt.on('-n VAL', '--name=VAL', 'task name') { |val| options[:name] = val }
-          opt.on('-c VAL', '--content=VAL', 'task content') { |val| options[:content] = val }
-        end
-
+        sub_command_parsers = create_sub_command_parsers(options)
         command_parser = create_command_parser(options)
 
         begin
@@ -31,8 +23,16 @@ module Yhoshino11Todo
       end
 
       def self.create_sub_command_parsers(options)
+        sub_command_parsers = Hash.new do |key,val|
+          raise ArgumentError, "'#{val}' is not yhoshino11_todo sub command."
+        end
 
-      end
+        sub_command_parsers['create'] = OptionParser.new do |opt|
+          opt.on('-n VAL', '--name=VAL', 'task name') { |val| options[:name] = val }
+          opt.on('-c VAL', '--content=VAL', 'task content') { |val| options[:content] = val }
+        end
+        sub_command_parsers
+     end
 
       def self.create_command_parser(options)
         OptionParser.new do |opt|
