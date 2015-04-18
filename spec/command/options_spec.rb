@@ -22,19 +22,24 @@ describe Yhoshino11Todo::Command::Options do
 
       context 'to update' do
         it 'name' do
-          options = option.parse!(['update', '-n another_name'])
-          expect(options).to eq({ command: 'update', name: ' another_name' })
+          options = option.parse!(['update', 1, '-n another_name'])
+          expect(options).to eq({ command: 'update', id: 1, name: ' another_name' })
         end
 
         it 'content' do
-          options = option.parse!(['update', '-c another_content'])
-          expect(options).to eq({ command: 'update', content: ' another_content' })
+          options = option.parse!(['update', 1, '-c another_content'])
+          expect(options).to eq({ command: 'update', id: 1, content: ' another_content' })
         end
 
         it 'status' do
-          options = option.parse!(['update', '-s pending'])
-          expect(options).to eq({ command: 'update', status: ' pending' })
+          options = option.parse!(['update', 1, '-s pending'])
+          expect(options).to eq({ command: 'update', id: 1, status: ' pending' })
         end
+      end
+
+      it 'to delete' do
+        options = option.parse!(['delete', 1])
+        expect(options).to eq({ command: 'delete', id: 1 })
       end
     end
   end

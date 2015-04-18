@@ -15,6 +15,10 @@ module Yhoshino11Todo
           command_parser.order!(argv)
           options[:command] = argv.shift
           sub_command_parsers[options[:command]].parse!(argv)
+          if %w(update delete).include?(options[:command])
+            raise ArgumentError, "#{options[:command]} id not found." if argv.empty?
+            options[:id] = Integer(argv.first)
+          end
         rescue OptionParser::MissingArgument, OptionParser::InvalidOption, ArgumentError => e
           abort e.message
         end
@@ -40,6 +44,9 @@ module Yhoshino11Todo
           opt.on('-n VAL', '--name VAL', 'update name') { |val| options[:name] = val }
           opt.on('-c VAL', '--content VAL', 'update content') { |val| options[:content] = val }
           opt.on('-s VAL', '--status VAL', 'update status') { |val| options[:status] = val }
+        end
+
+        sub_command_parsers['delete'] = OptionParser.new do |opt|
         end
         sub_command_parsers
      end
