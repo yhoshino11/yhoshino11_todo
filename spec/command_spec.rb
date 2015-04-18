@@ -23,8 +23,28 @@ describe Yhoshino11Todo::Command do
 
     it 'to update' do
       task = tasks.first
-      task = command.update_task(task.id, {content: 'new_task',status: 'done'})
+      task = command.update_task(task.id, { content: 'new_task',status: 'done' })
       expect(task[:status]).to eq(1)
+    end
+
+    context 'to find' do
+      before do
+        command.create_task(task[:name], task[:content])
+        task = tasks.first
+        command.update_task(task.id, { content: 'new_task', status: 'done' })
+      end
+
+      it 'filtered tasks' do
+        status = 'done'
+        all_tasks = command.find_tasks(status)
+        expect(all_tasks.count).to eq(1)
+      end
+
+      it 'all tasks' do
+        status = nil
+        all_tasks = command.find_tasks(status)
+        expect(tasks.count).to eq(all_tasks.count)
+      end
     end
 
     it 'to destroy' do
