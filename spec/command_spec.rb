@@ -1,7 +1,7 @@
 require 'spec_helper.rb'
 
 describe Yhoshino11Todo::Command do
-  let(:command) { Yhoshino11Todo::Command.new }
+  let(:command) { Yhoshino11Todo::Command.new(nil) }
   let(:tasks) { Yhoshino11Todo::Task }
   let(:task) { build(:task) }
 
