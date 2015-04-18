@@ -1,7 +1,7 @@
 directories %w(lib config spec)
 clearing :on
 
-guard :rspec, cmd: "bundle exec rspec", spring: true do
+guard :rspec, cmd: "bundle exec rspec", spring: true, all_on_start: true do
   require "guard/rspec/dsl"
   dsl = Guard::RSpec::Dsl.new(self)
 
