@@ -17,14 +17,7 @@ module Yhoshino11Todo
           opt.on('-c VAL', '--content=VAL', 'task content') { |val| options[:content] = val }
         end
 
-        command_parser = OptionParser.new do |opt|
-          opt.on_head('-v', '--version', 'Show program version') do |v|
-            opt.version = Yhoshino11Todo::VERSION
-            opt.ver
-            puts opt.ver
-            exit
-          end
-        end
+        command_parser = create_command_parser(options)
 
         begin
           command_parser.order!(argv)
@@ -35,6 +28,21 @@ module Yhoshino11Todo
         end
 
         options
+      end
+
+      def self.create_sub_command_parsers(options)
+
+      end
+
+      def self.create_command_parser(options)
+        OptionParser.new do |opt|
+          opt.on_head('-v', '--version', 'Show program version') do |v|
+            opt.version = Yhoshino11Todo::VERSION
+            opt.ver
+            puts opt.ver
+            exit
+          end
+        end
       end
     end
   end
